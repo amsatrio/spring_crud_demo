@@ -1,0 +1,59 @@
+@base_url=http://localhost:8085/graphql
+@contentType = application/json
+
+### find data by id
+POST {{base_url}}
+Content-Type: {{contentType}}
+X-REQUEST-TYPE: GraphQL
+
+query {
+  getMBiodataById(id: 1005) {
+    id
+    fullname
+    mobilePhone
+    imagePath
+    createdOn
+    modifiedOn
+    isDelete
+  }
+}
+
+### create data
+# Note: Your schema requires 'id' inside MBiodataCreateInput
+POST {{base_url}}
+Content-Type: {{contentType}}
+X-REQUEST-TYPE: GraphQL
+
+mutation {
+  createMBiodata(mBiodataInput: {
+    fullname: "Eleanor Pricea",
+    mobilePhone: "628123456789",
+    imagePath: "/images/eleanor.jpg"
+  })
+}
+
+### update data
+POST {{base_url}}
+Content-Type: {{contentType}}
+X-REQUEST-TYPE: GraphQL
+
+mutation {
+  updateMBiodata(
+    id: 1005, 
+    mBiodataInput: {
+      fullname: "Eleanor Pricea Updated",
+      mobilePhone: "628123456789",
+      imagePath: "/images/eleanor_new.jpg",
+      isDelete: false
+    }
+  )
+}
+
+### delete
+POST {{base_url}}
+Content-Type: {{contentType}}
+X-REQUEST-TYPE: GraphQL
+
+mutation {
+  deleteMBiodata(id: 1003)
+}

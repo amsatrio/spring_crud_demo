@@ -1,0 +1,67 @@
+server:
+  port: 8085
+
+spring:
+  datasource:
+    hikari:
+      initialization-fail-timeout: 0
+      maximum-pool-size: 10
+      minimum-idle: 5
+
+    # DATABASE
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    # url: jdbc:mysql://optiplex3050.tailb8a972.ts.net/db-hospital?zeroDateTimeBehavior=convertToNull
+    url: jdbc:mysql://localhost:3306/db-hospital?useSSL=false&allowPublicKeyRetrieval=true
+    # driver-class-name: org.postgresql.Driver
+    # url: jdbc:postgresql://optiplex3050.tailb8a972.ts.net:5432/db_hospital
+    username: user_local
+    password: auUmc2FutKX5frJad3uVpNM5mnbXhzS53AygPwijprD9qfabKYebggJpJKcWCN9NmQpUf7QM7wFcyg7AWMLhFTdHXy34fX7zvrMjbe9usMnPpAWS9KF779XTEAEQE22s
+  
+  
+  # GRAPHQL
+  graphql:
+    graphiql:
+      enabled: true
+      path: /graphiql
+
+  # Redis (Cache)
+  cache.type: redis
+  data.redis:
+    host: localhost
+    port: 6379
+    password: 8cffbaaa5bd144ab1939361a03103eed7d1af6fd9e2052b1ef73502745a3dfcc
+    # Connection timeout in milliseconds
+    timeout: 5000
+    # Set to true if Redis server is using SSL/TLS
+    ssl.enabled: false
+    jedis:
+        pool:
+          max-active: 8
+          max-idle: 8
+          min-idle: 2
+
+# DOCUMENTATION
+springdoc:
+  api-docs.enabled: true
+  swagger-ui.enabled: true
+
+# JWT
+app:
+  auth:
+    token_secret: cjL7YxzHLgNY7SVRcqvyZSRZE5iN7RQYJpKFqP57MnkuxuDQPb7FX3SDuzTEckAxsJk2wMFwLMwyFtMR3msyfgjwbkazEAw45XyJKYh
+    # expiration time=> 1 day=24 * 60 * 60 * 1000 millisecond=86400000
+    # expiration time=> 3 day=3 * 24 * 60 * 60 * 1000 millisecond=259200000
+    # expiration time=> 10 years=10 * 12 * 30 * 24 * 60 * 60 * 1000 millisecond=86400000
+    main_token_expiration_in_ms: 30000
+    refresh_token_expiration_in_ms: 86400000
+    allowed_login_time: 06:00:00
+  local_db: /home/mos/.cache/sharedfolder/shared_db
+
+# Kafka
+kafka:
+  bootstrap-servers: localhost:9092
+
+# Eureka
+eureka:
+  client:
+    service-url.defaultZone: http://localhost:8761/eureka/

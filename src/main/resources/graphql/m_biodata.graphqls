@@ -1,0 +1,47 @@
+scalar Long
+scalar DateTime
+scalar Object
+
+schema {
+  query: Query
+  mutation: Mutation
+}
+
+type Query {
+  getMBiodataById(id: ID): MBiodata
+}
+
+type Mutation {
+  createMBiodata(mBiodataInput: MBiodataCreateInput!): Boolean
+  updateMBiodata(id: ID!, mBiodataInput: MBiodataUpdateInput!): Boolean
+  deleteMBiodata(id: ID!): Boolean
+}
+
+type MBiodata {
+  id: ID
+  fullname: String
+  mobilePhone: String
+  image: Object
+  imagePath: String
+  createdBy: Long
+  createdOn: DateTime
+  modifiedBy: Long
+  modifiedOn: DateTime
+  deletedBy: Long
+  deletedOn: DateTime
+  isDelete: Boolean
+}
+
+
+input MBiodataCreateInput {
+  fullname: String!
+  mobilePhone: String
+  imagePath: String
+}
+
+input MBiodataUpdateInput {
+  fullname: String!
+  mobilePhone: String!
+  imagePath: String
+  isDelete: Boolean
+}

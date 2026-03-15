@@ -1,0 +1,35 @@
+@base_url=http://localhost:8085
+
+### find data by id
+GET {{base_url}}/v1/m-biodata/1002
+
+### find data by page
+GET {{base_url}}/v1/m-biodata?page100&size=10
+
+### create data
+POST {{base_url}}/v1/m-biodata
+Content-Type: application/json
+Accept-Encoding: gzip
+
+{
+    "fullname": "Eleanor Pricea",
+    "image": null,
+    "imagePath": "",
+    "isDelete": false
+}
+
+### update data
+PUT {{base_url}}/v1/m-biodata
+Content-Type: application/json
+Accept-Encoding: gzip
+
+{
+    "id": 1001,
+    "fullname": "Eleanor Pricea",
+    "image": null,
+    "imagePath": "",
+    "isDelete": false
+}
+
+### delete
+DELETE {{base_url}}/v1/m-biodata/1001

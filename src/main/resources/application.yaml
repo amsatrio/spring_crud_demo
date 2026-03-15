@@ -1,0 +1,142 @@
+server:
+  compression:
+    enabled: true
+    min-response-size: 4096
+    mime-types: text/html, text/xml, text/plain, text/css, text/javascript, application/javascript, application/json
+  tomcat.connection-timeout: 600000
+  netty.connection-timeout: 600000
+  forward-headers-strategy: native
+  # ssl:
+  #   enabled: true
+  #   protocol: TLS
+  #   keyStoreType: PKCS12
+  #   key-store: classpath:mobcoll.p12
+  #   key-store-password: pru9MtTWJSnZrTwh3NDuxxWwrpsWpmuwepKbmezsaHQZtwAQsmzjD4Nci55QEmsRw75ECFRYNHV7EemKziCEckhNsq7vEwZsJFm3QKpFyeTR2RJAQkULQQ5zC5qe5gJA
+
+# JWT
+app:
+  auth:
+    token-secret: cjL7YxzHLgNY7SVRcqvyZSRZE5iN7RQYJpKFqP57MnkuxuDQPb7FX3SDuzTEckAxsJk2wMFwLMwyFtMR3msyfgjwbkazEAw45XyJKYh
+    # expiration time=> 1 day=24 * 60 * 60 * 1000 millisecond=86400000
+    # expiration time=> 3 day=3 * 24 * 60 * 60 * 1000 millisecond=259200000
+    # expiration time=> 10 years=10 * 12 * 30 * 24 * 60 * 60 * 1000 millisecond=86400000
+    token-expiration-ms: 259200000
+
+# Eureka
+eureka:
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    instance-info-replication-interval-seconds: 30
+    registry-fetch-interval-seconds: 30
+
+# Management endpoint
+management:
+  endpoints.web.exposure.include: health,info
+  endpoint:
+    health:
+      group.custom:
+        show-components: always
+        show-details: always
+      access: READ_ONLY
+    info:
+      access: READ_ONLY
+
+# Kafka
+kafka:
+  consumer:
+    auto-offset-reset: earliest
+    group-id: my-consumer-group
+    key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+    value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+  producer:
+    key-serializer: org.apache.kafka.common.serialization.StringSerializer
+    value-serializer: org.apache.kafka.common.serialization.StringSerializer
+  # properties.spring.json.trusted.packages: com.*
+
+# Logging
+logging:
+  level:
+    root: INFO
+    "[org.springframework]": debug
+    "[com.netflix]": info
+
+# DOCUMENTATION
+springdoc:
+  api-docs.path: /doc/api-docs
+  swagger-ui.path: /doc/swagger-ui.html
+
+# EXTERNAL API
+endpoint:
+  url:
+    alfresco: /
+    sms-engine: /
+    ldap: /
+
+# SCHEDULER
+scheduler:
+  enable: true
+  schedule:
+    post-data-from-magic: 0 30 5 * * ?
+    post-data-from-recovery: 0 0 6 * * ?
+
+spring:
+  application.name: spring-crud-demo
+  output.ansi.enabled: ALWAYS
+  jpa:
+    show-sql: true
+    hibernate.ddl-auto: none
+    database: default
+    properties:
+      hibernate:
+        format_sql: true
+        check_nullability: true
+        jdbc.time_zone: Asia/Jakarta
+        # MariaDBDialect MySQLDialect PostgreSQLDialect OraclecDialect H2Dialect
+        dialect: org.hibernate.dialect.MySQLDialect
+        temp.use_jdbc_metadata_default: false
+      # disable validation at persistence layer
+      javax:
+        persistence:
+          validation:
+            mode: none
+    # MariaDBDialect MySQLDialect PostgreSQLDialect OraclecDialect H2Dialect
+    database-platform: org.hibernate.MySQLDialect
+    defer-datasource-initialization: true
+
+  # LIMIT FILE
+  servlet:
+    multipart:
+      max-file-size: 30MB
+      max-request-size: 50MB
+      resolve-lazily: true
+
+  # EMAIL
+  mail:
+    host: sandbox.smtp.mailtrap.io
+    port: 587
+    username: f914230f2ba7ac
+    password: ef900767787926
+    properties:
+      mail:
+        smtp:
+          auth: true
+          connection-timeout: 5000
+          timeout: 5000
+          write-timeout: 5000
+          # TLS , port 587
+          starttls:
+            enable: true
+  profiles:
+    active: local
+  threads:
+    virtual:
+      enabled: true
+  web:
+    error:
+      whitelabel:
+        enabled: false
+        # include-exception: true
+        # include-stacktrace: always
+        # include-message: always
+        # path: /error
