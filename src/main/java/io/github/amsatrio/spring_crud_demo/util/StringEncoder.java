@@ -72,20 +72,19 @@ public class StringEncoder {
         return s.matches("^[0-9A-Fa-f]+$");
     }
 
-
-
-    public boolean base64BasicValidation(String input){
+    public boolean base64BasicValidation(String input) {
+        if (input == null || input.isEmpty()) {
+            return false;
+        }
         try {
-            Base64.Decoder decoder = Base64.getDecoder();
-            new String(decoder.decode(input.getBytes()));
+            Base64.getDecoder().decode(input.getBytes(StandardCharsets.UTF_8));
+            return true;
         } catch (IllegalArgumentException e) {
             return false;
         }
-
-        return true;
     }
 
-    public String base64BasicEncoder(String input){
+    public String base64BasicEncoder(String input) {
         String output = "";
         Base64.Encoder encoder = Base64.getEncoder();
         output = encoder.encodeToString(input.getBytes());

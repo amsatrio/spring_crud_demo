@@ -1,5 +1,5 @@
 server:
-  port: 8085
+  port: 8003
 
 spring:
   datasource:
@@ -10,8 +10,8 @@ spring:
 
     # DATABASE
     driver-class-name: com.mysql.cj.jdbc.Driver
-    # url: jdbc:mysql://optiplex3050.tailb8a972.ts.net/db-hospital?zeroDateTimeBehavior=convertToNull
-    url: jdbc:mysql://localhost:3306/db-hospital?useSSL=false&allowPublicKeyRetrieval=true
+    url: jdbc:mysql://optiplex3050.tailb8a972.ts.net/db-hospital?zeroDateTimeBehavior=convertToNull&useSSL=false&allowPublicKeyRetrieval=true
+    # url: jdbc:mysql://localhost:3306/db-hospital?useSSL=false&allowPublicKeyRetrieval=true
     # driver-class-name: org.postgresql.Driver
     # url: jdbc:postgresql://optiplex3050.tailb8a972.ts.net:5432/db_hospital
     username: user_local
@@ -27,7 +27,7 @@ spring:
   # Redis (Cache)
   cache.type: redis
   data.redis:
-    host: localhost
+    host: optiplex3050.tailb8a972.ts.net
     port: 6379
     password: 8cffbaaa5bd144ab1939361a03103eed7d1af6fd9e2052b1ef73502745a3dfcc
     # Connection timeout in milliseconds
@@ -55,7 +55,7 @@ app:
     main_token_expiration_in_ms: 30000
     refresh_token_expiration_in_ms: 86400000
     allowed_login_time: 06:00:00
-  local_db: /home/mos/.cache/sharedfolder/shared_db
+  local_db: /home/user0/.cache/sharedfolder/shared_db
 
 # Kafka
 kafka:

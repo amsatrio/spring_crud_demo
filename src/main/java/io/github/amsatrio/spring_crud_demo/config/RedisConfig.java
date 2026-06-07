@@ -12,7 +12,7 @@ import org.springframework.data.redis.serializer.GenericToStringSerializer;
 import org.springframework.data.redis.serializer.RedisSerializationContext;
 import org.springframework.data.redis.serializer.RedisSerializer;
 
-import io.github.amsatrio.spring_crud_demo.middleware.exception.CustomCacheException;
+import io.github.amsatrio.spring_crud_demo.middleware.exception.CustomCacheExceptionHandler;
 
 import java.time.Duration;
 import java.util.Map;
@@ -31,7 +31,7 @@ public class RedisConfig implements CachingConfigurer {
 
     @Override
     public CacheErrorHandler errorHandler() {
-        return new CustomCacheException();
+        return new CustomCacheExceptionHandler();
     }
 
     @Bean

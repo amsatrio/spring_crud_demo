@@ -14,8 +14,8 @@ public class AESEncryptionUtil {
 
     /// Encrypt data using AES encryption with a provided key and IV
     public static String encrypt(String plaintext, String stringKey) throws Exception {
-        SecretKey secretKey = new SecretKeySpec(stringKey.getBytes(), AES_ALGORITHM);
-        IvParameterSpec iv = new IvParameterSpec(AES_IV.getBytes());
+        SecretKey secretKey = new SecretKeySpec(stringKey.getBytes(StandardCharsets.UTF_8), AES_ALGORITHM);
+        IvParameterSpec iv = new IvParameterSpec(AES_IV.getBytes(StandardCharsets.UTF_8));
 
         Cipher cipher = Cipher.getInstance(AES_TRANSFORMATION);
         cipher.init(Cipher.ENCRYPT_MODE, secretKey, iv);
@@ -25,8 +25,8 @@ public class AESEncryptionUtil {
 
     /// Decrypt data using AES decryption with a provided key and IV
     public static String decrypt(String ciphertext, String stringKey) throws Exception {
-        SecretKey secretKey = new SecretKeySpec(stringKey.getBytes(), AES_ALGORITHM);
-        IvParameterSpec iv = new IvParameterSpec(AES_IV.getBytes());
+        SecretKey secretKey = new SecretKeySpec(stringKey.getBytes(StandardCharsets.UTF_8), AES_ALGORITHM);
+        IvParameterSpec iv = new IvParameterSpec(AES_IV.getBytes(StandardCharsets.UTF_8));
 
         Cipher cipher = Cipher.getInstance(AES_TRANSFORMATION);
         cipher.init(Cipher.DECRYPT_MODE, secretKey, iv);

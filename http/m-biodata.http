@@ -1,10 +1,10 @@
-@base_url=http://localhost:8085
+@base_url=http://localhost:8003
 
 ### find data by id
-GET {{base_url}}/v1/m-biodata/1002
+GET {{base_url}}/v1/m-biodata/1
 
 ### find data by page
-GET {{base_url}}/v1/m-biodata?page100&size=10
+GET {{base_url}}/v1/m-biodata?page=0&size=10
 
 ### create data
 POST {{base_url}}/v1/m-biodata

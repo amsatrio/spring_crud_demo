@@ -12,6 +12,8 @@ import java.util.Random;
 
 @Slf4j
 public class Generator {
+    private static final String WILAYAH_FILE_PATH = "/home/mos/drive_0/workspace/spring/spring_hospital/db/wilayah.sql";
+
     private static final String[] DOMAINS = {
             "gmail.com", "yahoo.com", "hotmail.com", "outlook.com", "aol.com", "icloud.com", "protonmail.com",
             "zoho.com",
@@ -828,7 +830,7 @@ public class Generator {
 
     public String[] getLocationStrings() {
         try (BufferedReader bufferedReader = new BufferedReader(
-                new FileReader("/home/mos/drive_0/workspace/spring/spring_hospital/db/wilayah.sql"))) {
+                new FileReader(WILAYAH_FILE_PATH))) {
             List<String> stringList = new ArrayList<>();
             String line;
 
@@ -847,7 +849,6 @@ public class Generator {
 
     public String[] generateSTR(int count) {
         List<String> strList = new ArrayList<>();
-        Random random = new Random();
 
         for (int i = 0; i < count; i++) {
             String str = "STR-" + getRandomNumber(1000, 9999) + "-" +

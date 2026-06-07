@@ -88,9 +88,7 @@ public class ReadWriteFile {
         } else if (text.isEmpty()) {
             writeStringToFile("{}", localDb);
         }
-        Map<String, String> map = new HashMap<>();
-        map = objectMapper.readValue(text, new TypeReference<Map<String, String>>() {
-        });
+        Map<String, String> map = objectMapper.readValue(text, new TypeReference<Map<String, String>>() {});
 
         return map;
     }
@@ -146,29 +144,26 @@ public class ReadWriteFile {
         Path directory = Paths.get(parentDirectory);
 
         // List all files in the directory
-        List<String> filePaths = new ArrayList<>();
         try (Stream<Path> pathStream = Files.list(directory)) {
-            filePaths = pathStream
+            List<String> filePaths = pathStream
                     .map(Path::toString)
                     .collect(Collectors.toList());
+            return filePaths;
         } catch (IOException ioException) {
             log.error("ReadWriteFile > getAllFiles > error ", ioException);
             throw ioException;
         }
-
-        return filePaths;
     }
-
 
     public List<String> readMultipleBase64Strings(String pathFile) throws IOException {
         String base64Data = readStringFromFile(pathFile);
-        if(base64Data == null) {
-            return  new ArrayList<>();
+        if (base64Data == null) {
+            return new ArrayList<>();
         }
 
         List<String> base64Strings = new ArrayList<>();
         String regex = "[A-Za-z0-9+/]+={0,2}";
-//        String regex = "([A-Za-z0-9+/]{4})*([A-Za-z0-9+/]{3}=|[A-Za-z0-9+/]{2}==)?";
+        // String regex = "([A-Za-z0-9+/]{4})*([A-Za-z0-9+/]{3}=|[A-Za-z0-9+/]{2}==)?";
         Pattern pattern = Pattern.compile(regex);
         Matcher matcher = pattern.matcher(base64Data);
 

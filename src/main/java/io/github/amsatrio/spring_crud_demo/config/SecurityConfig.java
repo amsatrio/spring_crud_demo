@@ -17,8 +17,8 @@ import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 import io.github.amsatrio.spring_crud_demo.middleware.filter.AuthTokenFilter;
-import io.github.amsatrio.spring_crud_demo.modules.auth.AuthenticationEntryPointImpl;
-import io.github.amsatrio.spring_crud_demo.modules.auth.UserDetailsServiceImpl;
+import io.github.amsatrio.spring_crud_demo.modules.hospital.service.implement.AuthenticationEntryPointImpl;
+import io.github.amsatrio.spring_crud_demo.modules.hospital.service.implement.UserDetailsServiceImpl;
 import io.github.amsatrio.spring_crud_demo.util.NoPasswordEncoder;
 
 @Configuration
@@ -62,7 +62,6 @@ public class SecurityConfig {
     @Primary
     SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
-                // .cors(AbstractHttpConfigurer::disable)
                 .csrf(AbstractHttpConfigurer::disable)
 
                 .cors(cors -> cors.configurationSource(corsConfig.corsConfigurationSource()))

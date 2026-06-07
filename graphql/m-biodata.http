@@ -1,4 +1,4 @@
-@base_url=http://localhost:8085/graphql
+@base_url=http://localhost:8003/graphql
 @contentType = application/json
 
 ### find data by id
@@ -7,7 +7,7 @@ Content-Type: {{contentType}}
 X-REQUEST-TYPE: GraphQL
 
 query {
-  getMBiodataById(id: 1005) {
+  getMBiodataById(id: 1) {
     id
     fullname
     mobilePhone

@@ -18,7 +18,7 @@ import org.springframework.security.web.authentication.WebAuthenticationDetailsS
 import org.springframework.util.StringUtils;
 import org.springframework.web.filter.OncePerRequestFilter;
 
-import io.github.amsatrio.spring_crud_demo.modules.auth.UserDetailsServiceImpl;
+import io.github.amsatrio.spring_crud_demo.modules.hospital.service.implement.UserDetailsServiceImpl;
 import io.github.amsatrio.spring_crud_demo.util.JwtUtil;
 
 

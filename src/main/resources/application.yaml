@@ -57,8 +57,8 @@ kafka:
 # Logging
 logging:
   level:
-    root: INFO
-    "[org.springframework]": debug
+    root: info
+    "[org.springframework]": info
     "[com.netflix]": info
 
 # DOCUMENTATION
