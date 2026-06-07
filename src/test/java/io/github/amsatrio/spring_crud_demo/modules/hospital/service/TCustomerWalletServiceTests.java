@@ -22,8 +22,8 @@ import static org.mockito.Mockito.when;
 import java.util.Date;
 import java.util.Optional;
 
-import com.github.amsatrio.spring_hospital.model.entity.TCustomerWallet;
-import com.github.amsatrio.spring_hospital.repository.TCustomerWalletRepository;
+import io.github.amsatrio.spring_crud_demo.modules.hospital.entity.TCustomerWallet;
+import io.github.amsatrio.spring_crud_demo.modules.hospital.repository.TCustomerWalletRepository;
 import io.github.amsatrio.spring_crud_demo.modules.hospital.service.implement.TCustomerWalletServiceImpl;
 
 @ExtendWith(MockitoExtension.class)

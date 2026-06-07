@@ -22,8 +22,8 @@ import static org.mockito.Mockito.when;
 import java.util.Date;
 import java.util.Optional;
 
-import com.github.amsatrio.spring_hospital.model.entity.MWalletDefaultNominal;
-import com.github.amsatrio.spring_hospital.repository.MWalletDefaultNominalRepository;
+import io.github.amsatrio.spring_crud_demo.modules.hospital.entity.MWalletDefaultNominal;
+import io.github.amsatrio.spring_crud_demo.modules.hospital.repository.MWalletDefaultNominalRepository;
 import io.github.amsatrio.spring_crud_demo.modules.hospital.service.implement.MWalletDefaultNominalServiceImpl;
 
 @ExtendWith(MockitoExtension.class)

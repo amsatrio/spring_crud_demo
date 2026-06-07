@@ -22,8 +22,8 @@ import static org.mockito.Mockito.when;
 import java.util.Date;
 import java.util.Optional;
 
-import com.github.amsatrio.spring_hospital.model.entity.MBiodataAttachment;
-import com.github.amsatrio.spring_hospital.repository.MBiodataAttachmentRepository;
+import io.github.amsatrio.spring_crud_demo.modules.hospital.entity.MBiodataAttachment;
+import io.github.amsatrio.spring_crud_demo.modules.hospital.repository.MBiodataAttachmentRepository;
 import io.github.amsatrio.spring_crud_demo.modules.hospital.service.implement.MBiodataAttachmentServiceImpl;
 
 @ExtendWith(MockitoExtension.class)

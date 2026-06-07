@@ -22,8 +22,8 @@ import static org.mockito.Mockito.when;
 import java.util.Date;
 import java.util.Optional;
 
-import com.github.amsatrio.spring_hospital.model.entity.MCustomerMember;
-import com.github.amsatrio.spring_hospital.repository.MCustomerMemberRepository;
+import io.github.amsatrio.spring_crud_demo.modules.hospital.entity.MCustomerMember;
+import io.github.amsatrio.spring_crud_demo.modules.hospital.repository.MCustomerMemberRepository;
 import io.github.amsatrio.spring_crud_demo.modules.hospital.service.implement.MCustomerMemberServiceImpl;
 
 @ExtendWith(MockitoExtension.class)

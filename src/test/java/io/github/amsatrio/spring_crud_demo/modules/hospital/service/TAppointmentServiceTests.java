@@ -22,8 +22,8 @@ import static org.mockito.Mockito.when;
 import java.util.Date;
 import java.util.Optional;
 
-import com.github.amsatrio.spring_hospital.model.entity.TAppointment;
-import com.github.amsatrio.spring_hospital.repository.TAppointmentRepository;
+import io.github.amsatrio.spring_crud_demo.modules.hospital.entity.TAppointment;
+import io.github.amsatrio.spring_crud_demo.modules.hospital.repository.TAppointmentRepository;
 import io.github.amsatrio.spring_crud_demo.modules.hospital.service.implement.TAppointmentServiceImpl;
 
 @ExtendWith(MockitoExtension.class)

@@ -22,8 +22,8 @@ import static org.mockito.Mockito.when;
 import java.util.Date;
 import java.util.Optional;
 
-import com.github.amsatrio.spring_hospital.model.entity.TResetPassword;
-import com.github.amsatrio.spring_hospital.repository.TResetPasswordRepository;
+import io.github.amsatrio.spring_crud_demo.modules.hospital.entity.TResetPassword;
+import io.github.amsatrio.spring_crud_demo.modules.hospital.repository.TResetPasswordRepository;
 import io.github.amsatrio.spring_crud_demo.modules.hospital.service.implement.TResetPasswordServiceImpl;
 
 @ExtendWith(MockitoExtension.class)

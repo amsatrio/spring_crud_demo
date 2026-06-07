@@ -22,8 +22,8 @@ import static org.mockito.Mockito.when;
 import java.util.Date;
 import java.util.Optional;
 
-import com.github.amsatrio.spring_hospital.model.entity.MBloodGroup;
-import com.github.amsatrio.spring_hospital.repository.MBloodGroupRepository;
+import io.github.amsatrio.spring_crud_demo.modules.hospital.entity.MBloodGroup;
+import io.github.amsatrio.spring_crud_demo.modules.hospital.repository.MBloodGroupRepository;
 import io.github.amsatrio.spring_crud_demo.modules.hospital.service.implement.MBloodGroupServiceImpl;
 
 @ExtendWith(MockitoExtension.class)

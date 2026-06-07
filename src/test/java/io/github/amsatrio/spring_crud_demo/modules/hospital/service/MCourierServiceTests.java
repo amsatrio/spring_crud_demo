@@ -22,8 +22,8 @@ import static org.mockito.Mockito.when;
 import java.util.Date;
 import java.util.Optional;
 
-import com.github.amsatrio.spring_hospital.model.entity.MCourier;
-import com.github.amsatrio.spring_hospital.repository.MCourierRepository;
+import io.github.amsatrio.spring_crud_demo.modules.hospital.entity.MCourier;
+import io.github.amsatrio.spring_crud_demo.modules.hospital.repository.MCourierRepository;
 import io.github.amsatrio.spring_crud_demo.modules.hospital.service.implement.MCourierServiceImpl;
 
 @ExtendWith(MockitoExtension.class)

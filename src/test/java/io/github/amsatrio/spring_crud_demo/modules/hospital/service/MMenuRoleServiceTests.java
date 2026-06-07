@@ -22,8 +22,8 @@ import static org.mockito.Mockito.when;
 import java.util.Date;
 import java.util.Optional;
 
-import com.github.amsatrio.spring_hospital.model.entity.MMenuRole;
-import com.github.amsatrio.spring_hospital.repository.MMenuRoleRepository;
+import io.github.amsatrio.spring_crud_demo.modules.hospital.entity.MMenuRole;
+import io.github.amsatrio.spring_crud_demo.modules.hospital.repository.MMenuRoleRepository;
 import io.github.amsatrio.spring_crud_demo.modules.hospital.service.implement.MMenuRoleServiceImpl;
 
 @ExtendWith(MockitoExtension.class)

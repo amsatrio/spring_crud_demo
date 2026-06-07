@@ -22,8 +22,8 @@ import static org.mockito.Mockito.when;
 import java.util.Date;
 import java.util.Optional;
 
-import com.github.amsatrio.spring_hospital.model.entity.MMenu;
-import com.github.amsatrio.spring_hospital.repository.MMenuRepository;
+import io.github.amsatrio.spring_crud_demo.modules.hospital.entity.MMenu;
+import io.github.amsatrio.spring_crud_demo.modules.hospital.repository.MMenuRepository;
 import io.github.amsatrio.spring_crud_demo.modules.hospital.service.implement.MMenuServiceImpl;
 
 @ExtendWith(MockitoExtension.class)

@@ -22,8 +22,8 @@ import static org.mockito.Mockito.when;
 import java.util.Date;
 import java.util.Optional;
 
-import com.github.amsatrio.spring_hospital.model.entity.MEducationLevel;
-import com.github.amsatrio.spring_hospital.repository.MEducationLevelRepository;
+import io.github.amsatrio.spring_crud_demo.modules.hospital.entity.MEducationLevel;
+import io.github.amsatrio.spring_crud_demo.modules.hospital.repository.MEducationLevelRepository;
 import io.github.amsatrio.spring_crud_demo.modules.hospital.service.implement.MEducationLevelServiceImpl;
 
 @ExtendWith(MockitoExtension.class)

@@ -22,8 +22,8 @@ import static org.mockito.Mockito.when;
 import java.util.Date;
 import java.util.Optional;
 
-import com.github.amsatrio.spring_hospital.model.entity.MUser;
-import com.github.amsatrio.spring_hospital.repository.MUserRepository;
+import io.github.amsatrio.spring_crud_demo.modules.hospital.entity.MUser;
+import io.github.amsatrio.spring_crud_demo.modules.hospital.repository.MUserRepository;
 import io.github.amsatrio.spring_crud_demo.modules.hospital.service.implement.MUserServiceImpl;
 
 @ExtendWith(MockitoExtension.class)

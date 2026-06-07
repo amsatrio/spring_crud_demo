@@ -22,8 +22,8 @@ import static org.mockito.Mockito.when;
 import java.util.Date;
 import java.util.Optional;
 
-import com.github.amsatrio.spring_hospital.model.entity.TDoctorOfficeSchedule;
-import com.github.amsatrio.spring_hospital.repository.TDoctorOfficeScheduleRepository;
+import io.github.amsatrio.spring_crud_demo.modules.hospital.entity.TDoctorOfficeSchedule;
+import io.github.amsatrio.spring_crud_demo.modules.hospital.repository.TDoctorOfficeScheduleRepository;
 import io.github.amsatrio.spring_crud_demo.modules.hospital.service.implement.TDoctorOfficeScheduleServiceImpl;
 
 @ExtendWith(MockitoExtension.class)

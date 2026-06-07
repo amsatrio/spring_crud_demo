@@ -22,8 +22,8 @@ import static org.mockito.Mockito.when;
 import java.util.Date;
 import java.util.Optional;
 
-import com.github.amsatrio.spring_hospital.model.entity.TCustomerCustomNominal;
-import com.github.amsatrio.spring_hospital.repository.TCustomerCustomNominalRepository;
+import io.github.amsatrio.spring_crud_demo.modules.hospital.entity.TCustomerCustomNominal;
+import io.github.amsatrio.spring_crud_demo.modules.hospital.repository.TCustomerCustomNominalRepository;
 import io.github.amsatrio.spring_crud_demo.modules.hospital.service.implement.TCustomerCustomNominalServiceImpl;
 
 @ExtendWith(MockitoExtension.class)

@@ -22,8 +22,8 @@ import static org.mockito.Mockito.when;
 import java.util.Date;
 import java.util.Optional;
 
-import com.github.amsatrio.spring_hospital.model.entity.MLocation;
-import com.github.amsatrio.spring_hospital.repository.MLocationRepository;
+import io.github.amsatrio.spring_crud_demo.modules.hospital.entity.MLocation;
+import io.github.amsatrio.spring_crud_demo.modules.hospital.repository.MLocationRepository;
 import io.github.amsatrio.spring_crud_demo.modules.hospital.service.implement.MLocationServiceImpl;
 
 @ExtendWith(MockitoExtension.class)
