@@ -69,7 +69,7 @@ public class MBiodataServiceImpl implements MBiodataService {
         }
 
         // === FILTERING
-        Specification<MBiodata> mBiodataSpecification = Specification.where(null);
+        Specification<MBiodata> mBiodataSpecification = (root, query, cb) -> cb.conjunction();
 
         // === GLOBAL FILTERING
         try {
@@ -340,6 +340,7 @@ public class MBiodataServiceImpl implements MBiodataService {
     private Long getUserDetailsIdFromAuthenticationSecurity(){
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         if (!(authentication instanceof AnonymousAuthenticationToken)) {
+            if(authentication == null) return 0L;
             UserDetailsImpl userDetails = (UserDetailsImpl) authentication.getPrincipal();
             return userDetails.getId();
         }

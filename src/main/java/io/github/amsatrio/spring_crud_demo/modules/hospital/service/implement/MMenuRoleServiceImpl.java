@@ -69,7 +69,7 @@ public class MMenuRoleServiceImpl implements MMenuRoleService {
         }
 
         // === FILTERING
-        Specification<MMenuRole> mMenuRoleSpecification = Specification.where(null);
+        Specification<MMenuRole> mMenuRoleSpecification = (root, query, cb) -> cb.conjunction();
 
         // === GLOBAL FILTERING
         try {
@@ -340,6 +340,7 @@ public class MMenuRoleServiceImpl implements MMenuRoleService {
     private Long getUserDetailsIdFromAuthenticationSecurity(){
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         if (!(authentication instanceof AnonymousAuthenticationToken)) {
+            if(authentication == null) return 0L;
             UserDetailsImpl userDetails = (UserDetailsImpl) authentication.getPrincipal();
             return userDetails.getId();
         }

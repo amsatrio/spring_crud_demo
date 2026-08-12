@@ -54,7 +54,7 @@ public class MBiodataAttachment implements Serializable {
     private String filePath;
 
     @JsonProperty("fileSize")
-    @Column(name = "file_size", columnDefinition = "int")
+    @Column(name = "filesize", columnDefinition = "int")
     private Integer fileSize;
 
     @JsonProperty("file")

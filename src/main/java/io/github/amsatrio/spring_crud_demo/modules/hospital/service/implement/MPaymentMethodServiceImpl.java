@@ -69,7 +69,7 @@ public class MPaymentMethodServiceImpl implements MPaymentMethodService {
         }
 
         // === FILTERING
-        Specification<MPaymentMethod> mPaymentMethodSpecification = Specification.where(null);
+        Specification<MPaymentMethod> mPaymentMethodSpecification = (root, query, cb) -> cb.conjunction();
 
         // === GLOBAL FILTERING
         try {
@@ -340,6 +340,7 @@ public class MPaymentMethodServiceImpl implements MPaymentMethodService {
     private Long getUserDetailsIdFromAuthenticationSecurity(){
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         if (!(authentication instanceof AnonymousAuthenticationToken)) {
+            if(authentication == null) return 0L;
             UserDetailsImpl userDetails = (UserDetailsImpl) authentication.getPrincipal();
             return userDetails.getId();
         }

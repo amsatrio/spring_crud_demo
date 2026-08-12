@@ -69,7 +69,7 @@ public class MCourierTypeServiceImpl implements MCourierTypeService {
         }
 
         // === FILTERING
-        Specification<MCourierType> mCourierTypeSpecification = Specification.where(null);
+        Specification<MCourierType> mCourierTypeSpecification = (root, query, cb) -> cb.conjunction();
 
         // === GLOBAL FILTERING
         try {
@@ -340,6 +340,7 @@ public class MCourierTypeServiceImpl implements MCourierTypeService {
     private Long getUserDetailsIdFromAuthenticationSecurity(){
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         if (!(authentication instanceof AnonymousAuthenticationToken)) {
+            if(authentication == null) return 0L;
             UserDetailsImpl userDetails = (UserDetailsImpl) authentication.getPrincipal();
             return userDetails.getId();
         }

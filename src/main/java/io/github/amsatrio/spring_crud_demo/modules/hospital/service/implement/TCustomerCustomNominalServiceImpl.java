@@ -69,7 +69,7 @@ public class TCustomerCustomNominalServiceImpl implements TCustomerCustomNominal
         }
 
         // === FILTERING
-        Specification<TCustomerCustomNominal> tCustomerCustomNominalSpecification = Specification.where(null);
+        Specification<TCustomerCustomNominal> tCustomerCustomNominalSpecification = (root, query, cb) -> cb.conjunction();
 
         // === GLOBAL FILTERING
         try {
@@ -340,6 +340,7 @@ public class TCustomerCustomNominalServiceImpl implements TCustomerCustomNominal
     private Long getUserDetailsIdFromAuthenticationSecurity(){
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         if (!(authentication instanceof AnonymousAuthenticationToken)) {
+            if(authentication == null) return 0L;
             UserDetailsImpl userDetails = (UserDetailsImpl) authentication.getPrincipal();
             return userDetails.getId();
         }

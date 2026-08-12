@@ -69,7 +69,7 @@ public class TDoctorOfficeTreatmentServiceImpl implements TDoctorOfficeTreatment
         }
 
         // === FILTERING
-        Specification<TDoctorOfficeTreatment> tDoctorOfficeTreatmentSpecification = Specification.where(null);
+        Specification<TDoctorOfficeTreatment> tDoctorOfficeTreatmentSpecification = (root, query, cb) -> cb.conjunction();
 
         // === GLOBAL FILTERING
         try {
@@ -340,6 +340,7 @@ public class TDoctorOfficeTreatmentServiceImpl implements TDoctorOfficeTreatment
     private Long getUserDetailsIdFromAuthenticationSecurity(){
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         if (!(authentication instanceof AnonymousAuthenticationToken)) {
+            if(authentication == null) return 0L;
             UserDetailsImpl userDetails = (UserDetailsImpl) authentication.getPrincipal();
             return userDetails.getId();
         }

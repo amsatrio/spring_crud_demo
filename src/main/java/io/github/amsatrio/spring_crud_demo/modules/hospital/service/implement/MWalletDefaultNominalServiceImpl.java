@@ -69,7 +69,7 @@ public class MWalletDefaultNominalServiceImpl implements MWalletDefaultNominalSe
         }
 
         // === FILTERING
-        Specification<MWalletDefaultNominal> mWalletDefaultNominalSpecification = Specification.where(null);
+        Specification<MWalletDefaultNominal> mWalletDefaultNominalSpecification = (root, query, cb) -> cb.conjunction();
 
         // === GLOBAL FILTERING
         try {
@@ -340,6 +340,7 @@ public class MWalletDefaultNominalServiceImpl implements MWalletDefaultNominalSe
     private Long getUserDetailsIdFromAuthenticationSecurity(){
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         if (!(authentication instanceof AnonymousAuthenticationToken)) {
+            if(authentication == null) return 0L;
             UserDetailsImpl userDetails = (UserDetailsImpl) authentication.getPrincipal();
             return userDetails.getId();
         }

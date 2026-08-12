@@ -69,7 +69,7 @@ public class TCustomerRegisteredCardServiceImpl implements TCustomerRegisteredCa
         }
 
         // === FILTERING
-        Specification<TCustomerRegisteredCard> tCustomerRegisteredCardSpecification = Specification.where(null);
+        Specification<TCustomerRegisteredCard> tCustomerRegisteredCardSpecification = (root, query, cb) -> cb.conjunction();
 
         // === GLOBAL FILTERING
         try {
@@ -340,6 +340,7 @@ public class TCustomerRegisteredCardServiceImpl implements TCustomerRegisteredCa
     private Long getUserDetailsIdFromAuthenticationSecurity(){
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         if (!(authentication instanceof AnonymousAuthenticationToken)) {
+            if(authentication == null) return 0L;
             UserDetailsImpl userDetails = (UserDetailsImpl) authentication.getPrincipal();
             return userDetails.getId();
         }

@@ -84,7 +84,7 @@ spring:
   application.name: spring-crud-demo
   output.ansi.enabled: ALWAYS
   jpa:
-    show-sql: true
+    show-sql: false
     hibernate.ddl-auto: none
     database: default
     properties:

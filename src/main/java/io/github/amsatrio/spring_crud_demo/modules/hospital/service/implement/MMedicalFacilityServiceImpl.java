@@ -69,7 +69,7 @@ public class MMedicalFacilityServiceImpl implements MMedicalFacilityService {
         }
 
         // === FILTERING
-        Specification<MMedicalFacility> mMedicalFacilitySpecification = Specification.where(null);
+        Specification<MMedicalFacility> mMedicalFacilitySpecification = (root, query, cb) -> cb.conjunction();
 
         // === GLOBAL FILTERING
         try {
@@ -340,6 +340,7 @@ public class MMedicalFacilityServiceImpl implements MMedicalFacilityService {
     private Long getUserDetailsIdFromAuthenticationSecurity(){
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         if (!(authentication instanceof AnonymousAuthenticationToken)) {
+            if(authentication == null) return 0L;
             UserDetailsImpl userDetails = (UserDetailsImpl) authentication.getPrincipal();
             return userDetails.getId();
         }

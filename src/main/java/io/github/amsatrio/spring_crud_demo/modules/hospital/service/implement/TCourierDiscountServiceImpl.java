@@ -69,7 +69,7 @@ public class TCourierDiscountServiceImpl implements TCourierDiscountService {
         }
 
         // === FILTERING
-        Specification<TCourierDiscount> tCourierDiscountSpecification = Specification.where(null);
+        Specification<TCourierDiscount> tCourierDiscountSpecification = (root, query, cb) -> cb.conjunction();
 
         // === GLOBAL FILTERING
         try {
@@ -340,6 +340,7 @@ public class TCourierDiscountServiceImpl implements TCourierDiscountService {
     private Long getUserDetailsIdFromAuthenticationSecurity(){
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         if (!(authentication instanceof AnonymousAuthenticationToken)) {
+            if(authentication == null) return 0L;
             UserDetailsImpl userDetails = (UserDetailsImpl) authentication.getPrincipal();
             return userDetails.getId();
         }

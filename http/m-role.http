@@ -1,0 +1,33 @@
+@base_url=http://localhost:8003
+
+### find data by id
+GET {{base_url}}/v1/m-role/1
+
+### find data by page
+GET {{base_url}}/v1/m-role?page=0&size=10
+
+### create data
+POST {{base_url}}/v1/m-role
+Content-Type: application/json
+Accept-Encoding: gzip
+
+{
+    "name": "ADMIN",
+    "code": "ROLE_ADMIN",
+    "isDelete": false
+}
+
+### update data
+PUT {{base_url}}/v1/m-role
+Content-Type: application/json
+Accept-Encoding: gzip
+
+{
+    "id": 1,
+    "name": "ADMIN",
+    "code": "ROLE_ADMIN",
+    "isDelete": false
+}
+
+### delete
+DELETE {{base_url}}/v1/m-role/1

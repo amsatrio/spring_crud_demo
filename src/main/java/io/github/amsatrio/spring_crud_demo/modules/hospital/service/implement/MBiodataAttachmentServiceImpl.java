@@ -2,10 +2,11 @@ package io.github.amsatrio.spring_crud_demo.modules.hospital.service.implement;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import io.github.amsatrio.spring_crud_demo.modules.hospital.entity.MBiodataAttachment;
+
 import io.github.amsatrio.spring_crud_demo.dto.enumerator.FilterMatchMode;
 import io.github.amsatrio.spring_crud_demo.dto.request.FilterRequest;
 import io.github.amsatrio.spring_crud_demo.dto.request.SortRequest;
+import io.github.amsatrio.spring_crud_demo.modules.hospital.entity.MBiodataAttachment;
 import io.github.amsatrio.spring_crud_demo.modules.hospital.repository.MBiodataAttachmentRepository;
 import io.github.amsatrio.spring_crud_demo.modules.hospital.service.MBiodataAttachmentService;
 import lombok.extern.slf4j.Slf4j;
@@ -69,7 +70,7 @@ public class MBiodataAttachmentServiceImpl implements MBiodataAttachmentService 
         }
 
         // === FILTERING
-        Specification<MBiodataAttachment> mBiodataAttachmentSpecification = Specification.where(null);
+        Specification<MBiodataAttachment> mBiodataAttachmentSpecification = (root, query, cb) -> cb.conjunction();
 
         // === GLOBAL FILTERING
         try {
@@ -340,6 +341,7 @@ public class MBiodataAttachmentServiceImpl implements MBiodataAttachmentService 
     private Long getUserDetailsIdFromAuthenticationSecurity(){
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         if (!(authentication instanceof AnonymousAuthenticationToken)) {
+            if(authentication == null) return 0L;
             UserDetailsImpl userDetails = (UserDetailsImpl) authentication.getPrincipal();
             return userDetails.getId();
         }

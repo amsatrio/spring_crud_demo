@@ -69,7 +69,7 @@ public class MAdminServiceImpl implements MAdminService {
         }
 
         // === FILTERING
-        Specification<MAdmin> mAdminSpecification = Specification.where(null);
+        Specification<MAdmin> mAdminSpecification = (root, query, cb) -> cb.conjunction();
 
         // === GLOBAL FILTERING
         try {
@@ -340,6 +340,7 @@ public class MAdminServiceImpl implements MAdminService {
     private Long getUserDetailsIdFromAuthenticationSecurity(){
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         if (!(authentication instanceof AnonymousAuthenticationToken)) {
+            if(authentication == null) return 0L;
             UserDetailsImpl userDetails = (UserDetailsImpl) authentication.getPrincipal();
             return userDetails.getId();
         }
